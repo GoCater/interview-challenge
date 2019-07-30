@@ -17,6 +17,7 @@ const Author = new Schema({
   handle: {
     type: String,
     required: true,
+    unique : true,
   },
   profilePicture: {
     type: String,

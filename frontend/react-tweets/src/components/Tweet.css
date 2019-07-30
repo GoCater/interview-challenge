@@ -1,0 +1,9 @@
+.tweet .tweet-text a.expand {
+  color: blue;
+}
+
+.tweet .tweet-text a.expand:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}

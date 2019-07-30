@@ -17,6 +17,7 @@ const opts = yargs.usage('Usage: $0 [options]')
   .option('n', {
     alias: 'numberOfTweets',
     describe: 'Number of tweets to be created',
+    require: true,
   })
   .help('h')
   .version(false)
@@ -34,6 +35,15 @@ const contentGenerator = new LoremIpsum({
   }
 });
 
+const createTweet = author => {
+  const content = contentGenerator.generateParagraphs(1);
+
+  return Tweet.create({
+    content,
+    author,
+  });
+};
+
 const createTweets = async () => {
   const author = opts.author || null;
   const numberOfTweets = opts.numberOfTweets || 10;
@@ -42,15 +52,6 @@ const createTweets = async () => {
   await Promise.all(
     iterationsArray.map(() => createTweet(author))
   )
-};
-
-const createTweet = author => {
-  const content = contentGenerator.generateParagraphs(1);
-
-  return Tweet.create({
-    content,
-    author,
-  });
 };
 
 connectToDB()

@@ -1,0 +1,12 @@
+.author .author-profile-pic {
+  max-width: 80px;
+}
+
+.author .author-data {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.author .author-data .author-joined {
+  display: block;
+}

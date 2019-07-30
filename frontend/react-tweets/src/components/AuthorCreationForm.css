@@ -1,0 +1,26 @@
+.author-creation-form .text-input {
+  margin-left: 10px;
+}
+
+.author-creation-form button {
+  margin-right: 10px;
+}
+
+.author-creation-form .text-input.error {
+  border-color: red;
+}
+
+.author-creation-form .input-container {
+  display: block;
+}
+
+.author-creation-form .error-message {
+  color: red;
+}
+
+.form-container {
+  max-width: 400px;
+  margin-top: 30px;
+  border: 1px black solid;
+  padding: 10px;
+}
