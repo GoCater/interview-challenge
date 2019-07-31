@@ -1,8 +1,11 @@
 const Promise = require('bluebird');
 const yargs = require('yargs');
+const dotenv = require('dotenv');
 const connectToDB = require('../utils/connect-to-db');
 const Tweet = require('../models/tweet');
 const LoremIpsum = require("lorem-ipsum").LoremIpsum;
+
+dotenv.config();
 
 const opts = yargs.usage('Usage: $0 [options]')
   .example(
@@ -45,7 +48,7 @@ const createTweet = author => {
 };
 
 const createTweets = async () => {
-  const author = opts.author || null;
+  const author = opts.author || process.env.DEFAULT_AUTHOR;
   const numberOfTweets = opts.numberOfTweets || 10;
   const iterationsArray = [...Array(numberOfTweets).keys()];
 

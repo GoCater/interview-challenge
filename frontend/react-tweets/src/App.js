@@ -7,9 +7,6 @@ import AuthorsList from './components/AuthorsList';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const DEFAULT_AUTHOR_PIC =
-  'http://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg';
-
 const App = () => {
   const [activeTab, setActiveTab] = useState("tweets");
 

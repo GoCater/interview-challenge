@@ -5,6 +5,8 @@ import { postNewAuthor } from '../utils/remote-actions';
 
 import './AuthorCreationForm.css';
 
+const DEFAULT_AUTHOR_PIC =
+  'http://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg';
 const INITIAL_VALUES = {
   firstName: '',
   lastName: '',
@@ -29,7 +31,10 @@ const AuthorSchema = Yup.object().shape({
 const AuthorCreationForm = ({ onSuccess }) => {
   const [authorSucccesfullyCreared, setAuthorCreated] = useState(null);
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    postNewAuthor(values)
+    postNewAuthor({
+      ...values,
+      profilePicture: DEFAULT_AUTHOR_PIC,
+      })
       .then(() => {
         setSubmitting(false);
         setAuthorCreated(true);
