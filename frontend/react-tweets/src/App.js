@@ -1,32 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Nav from 'react-bootstrap/Nav';
-
-import TweetList from './components/TweetList';
-import AuthorsList from './components/AuthorsList';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
-  const [activeTab, setActiveTab] = useState("tweets");
+const changeTab = () => {};
 
+const App = () => {
   return (
     <div className="app">
-      <Nav variant="tabs" activeKey={activeTab}>
+      <Nav variant="tabs" activeKey="tweets">
         <Nav.Item>
-          <Nav.Link eventKey="tweets" onSelect={() => setActiveTab('tweets')}>
+          <Nav.Link eventKey="tweets" onSelect={() => changeTab('tweets')}>
             Tweets
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="authors" onSelect={() => setActiveTab('authors')}>
+          <Nav.Link eventKey="authors" onSelect={() => changeTab('authors')}>
             Authors
           </Nav.Link>
         </Nav.Item>
       </Nav>
       <div className="tab-content">
-        {activeTab === "tweets" && <TweetList />}
-        {activeTab === "authors" && <AuthorsList />}
       </div>
     </div>
   );

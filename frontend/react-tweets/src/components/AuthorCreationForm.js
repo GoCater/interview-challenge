@@ -1,45 +1,29 @@
 import React, { useState } from 'react';
-import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { postNewAuthor } from '../utils/remote-actions';
-
 import './AuthorCreationForm.css';
 
 const DEFAULT_AUTHOR_PIC =
   'http://s3.amazonaws.com/uifaces/faces/twitter/_everaldo/128.jpg';
+
+const postNewAuthor = () => {};
+
 const INITIAL_VALUES = {
   firstName: '',
   lastName: '',
   handle: ''
 };
 
-const AuthorSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  handle: Yup.string()
-    .min(5, 'Too Short!')
-    .max(15, 'Too Long!')
-    .required('Required')
-});
-
-const AuthorCreationForm = ({ onSuccess }) => {
+const AuthorCreationForm = () => {
   const [authorSucccesfullyCreared, setAuthorCreated] = useState(null);
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     postNewAuthor({
       ...values,
       profilePicture: DEFAULT_AUTHOR_PIC,
-      })
+    })
       .then(() => {
         setSubmitting(false);
         setAuthorCreated(true);
         resetForm(INITIAL_VALUES);
-        onSuccess();
       })
       .catch(() => {
         setSubmitting(false);
@@ -52,7 +36,6 @@ const AuthorCreationForm = ({ onSuccess }) => {
       <Formik
         initialValues={INITIAL_VALUES}
         onSubmit={onSubmit}
-        validationSchema={AuthorSchema}
       >
         {props => {
           const {
@@ -150,4 +133,4 @@ const AuthorCreationForm = ({ onSuccess }) => {
   );
 };
 
-export default React.memo(AuthorCreationForm);
+export default AuthorCreationForm;
