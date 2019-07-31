@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const Tweet = require('../models/tweet');
@@ -15,25 +16,21 @@ router.get('/tweets/:pageSize/:page', async (req, res) => {
   res.json(tweets);
 });
 
-router.get('/authors', async (_, res) => {
-  const authors = await Author.find();
-  res.json(authors);
-});
+router.post('/tweets', async (req, res) => {
+  const content = req.body.content;
+  const authorId = process.env.DEFAULT_AUTHOR;
+  console.log(authorId);
+  let tweet;
 
-router.post('/authors', async (req, res) => {
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const handle = req.body.handle;
-  const profilePicture = req.body.profilePicture;
-
-  Author.create({
-    firstName,
-    lastName,
-    handle,
-    profilePicture,
-  })
-    .then(_ => res.sendStatus(200))
-    .catch(_ => res.sendStatus(500));
+  try {
+    tweet = await Tweet.create({
+      content,
+      author: authorId,
+    });
+  } catch (err) {
+    res.error(err);
+  }
+  res.sendStatus(200);
 });
 
 module.exports = router;

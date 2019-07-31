@@ -13,6 +13,7 @@ const Tweet = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'author',
+    required: true
   },
 });
 

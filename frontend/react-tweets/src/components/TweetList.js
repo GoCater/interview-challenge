@@ -15,7 +15,7 @@ const TweetList = () => {
       const request = await getTweetsPaginated(PAGE_SIZE, currentPage);
 
       if (request.data.length > 0) {
-        setTweets([...tweets, ...request.data]);
+        setTweets([...request.data, ...tweets]);
       } else {
         setNoMoreTweets(true);
       }

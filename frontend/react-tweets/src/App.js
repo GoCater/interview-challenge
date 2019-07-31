@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 
 import TweetList from './components/TweetList';
-import AuthorsList from './components/AuthorsList';
+import TweetCreationForm from './components/TweetCreationForm';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,14 +19,14 @@ const App = () => {
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="authors" onSelect={() => setActiveTab('authors')}>
-            Authors
+          <Nav.Link eventKey="create-tweet" onSelect={() => setActiveTab('createTweet')}>
+            Create Tweet
           </Nav.Link>
         </Nav.Item>
       </Nav>
       <div className="tab-content">
         {activeTab === "tweets" && <TweetList />}
-        {activeTab === "authors" && <AuthorsList />}
+        {activeTab === "createTweet" && <TweetCreationForm />}
       </div>
     </div>
   );

@@ -1,20 +1,20 @@
-.author-creation-form .text-input {
+.tweet-creation-form .text-input {
   margin-left: 10px;
 }
 
-.author-creation-form button {
+.tweet-creation-form button {
   margin-right: 10px;
 }
 
-.author-creation-form .text-input.error {
+.tweet-creation-form .text-input.error {
   border-color: red;
 }
 
-.author-creation-form .input-container {
+.tweet-creation-form .input-container {
   display: block;
 }
 
-.author-creation-form .error-message {
+.tweet-creation-form .error-message {
   color: red;
 }
 

@@ -8,10 +8,6 @@ export const getTweetsPaginated = async (pageSize, page) => {
   return axios.get(getUrl(`/tweets/${pageSize}/${page}`));
 };
 
-export const getAuthors = async () => {
-  return axios.get(getUrl('/authors'));
-};
-
-export const postNewAuthor = async author => {
-  return axios.post(getUrl('/authors'), author);
+export const postNewTweet = async tweet => {
+  return axios.post(getUrl('/tweets'), tweet);
 };
