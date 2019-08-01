@@ -55,7 +55,7 @@ const TweetCreationForm = () => {
                   placeholder="Content"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.firstName}
+                  value={values.content}
                   className={`text-input ${errors.content ? "error" : ""}`}
                 />
                 {errors.content && touched.content && (
