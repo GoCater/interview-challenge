@@ -1,3 +1,6 @@
+.tweet {
+  max-width: 940px;
+}
 .tweet .tweet-text a.expand {
   color: blue;
 }

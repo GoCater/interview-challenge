@@ -16,21 +16,20 @@ router.get('/tweets/:pageSize/:page', async (req, res) => {
   res.json(tweets);
 });
 
-router.post('/tweets', async (req, res) => {
+router.post('/tweets', (req, res) => {
   const content = req.body.content;
   const authorId = process.env.DEFAULT_AUTHOR;
-  console.log(authorId);
-  let tweet;
 
-  try {
-    tweet = await Tweet.create({
-      content,
-      author: authorId,
-    });
-  } catch (err) {
-    res.error(err);
-  }
-  res.sendStatus(200);
+  Tweet.create({
+    content,
+    author: authorId,
+  }).then(() => {
+    res.sendStatus(200);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.sendStatus(500);
+  });
 });
 
 module.exports = router;

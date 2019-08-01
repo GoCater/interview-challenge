@@ -1,34 +1,32 @@
-import React, { useState } from 'react';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-import { postNewTweet } from '../utils/remote-actions';
+import React, { useState } from "react";
+import * as Yup from "yup";
+import { Formik } from "formik";
+import { postNewTweet } from "../utils/remote-actions";
 
-import './TweetCreationForm.css';
+import "./TweetCreationForm.css";
 
 const INITIAL_VALUES = {
-  content: '',
+  content: ""
 };
 
 const TweetSchema = Yup.object().shape({
   content: Yup.string()
-    .min(20, 'Too Short!')
-    .max(300, 'Too Long!')
-    .required('Required'),
+    .max(240, "Too Long!")
+    .required("Required")
 });
 
-const TweetCreationForm = ({ onSuccess }) => {
+const TweetCreationForm = () => {
   const [tweetSucccesfullyCreated, setTweetCreated] = useState(null);
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     postNewTweet({
-      ...values,
-      })
-      .then(() => {
+      ...values
+    })
+      .then(res => {
         setSubmitting(false);
         setTweetCreated(true);
         resetForm(INITIAL_VALUES);
-        onSuccess();
       })
-      .catch(() => {
+      .catch(err => {
         setSubmitting(false);
         setTweetCreated(false);
       });
@@ -64,7 +62,7 @@ const TweetCreationForm = ({ onSuccess }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.firstName}
-                  className={`text-input ${errors.content ? 'error' : ''}`}
+                  className={`text-input ${errors.content ? "error" : ""}`}
                 />
                 {errors.content && touched.content && (
                   <label htmlFor="content" className="error-message">
