@@ -2,26 +2,26 @@ import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 
-import './TweetCreationForm.css';
+import "./TweetCreationForm.css";
 
 const postNewTweet = () => {};
 
 const INITIAL_VALUES = {
-  content: '',
+  content: ""
 };
 
-const TweetCreationForm = ({ onSuccess }) => {
+const TweetCreationForm = () => {
   const [tweetSucccesfullyCreated, setTweetCreated] = useState(null);
   const onSubmit = async (values, { setSubmitting, resetForm }) => {
     postNewTweet({
-      ...values,
-      })
-      .then(() => {
+      ...values
+    })
+      .then(res => {
         setSubmitting(false);
         setTweetCreated(true);
         resetForm(INITIAL_VALUES);
       })
-      .catch(() => {
+      .catch(err => {
         setSubmitting(false);
         setTweetCreated(false);
       });
@@ -56,7 +56,7 @@ const TweetCreationForm = ({ onSuccess }) => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.firstName}
-                  className={`text-input ${errors.content ? 'error' : ''}`}
+                  className={`text-input ${errors.content ? "error" : ""}`}
                 />
                 {errors.content && touched.content && (
                   <label htmlFor="content" className="error-message">
