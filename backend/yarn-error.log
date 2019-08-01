@@ -1,17 +1,30 @@
 Arguments: 
-  /Users/Mauricio/.nvm/versions/node/v8.15.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run create-tweets
+  /home/thomas/.nvm/versions/node/v8.15.0/bin/node /usr/share/yarn/bin/yarn.js init
 
 PATH: 
-  /Users/Mauricio/.rvm/gems/ruby-2.6.0/bin:/Users/Mauricio/.rvm/gems/ruby-2.6.0@global/bin:/Users/Mauricio/.rvm/rubies/ruby-2.6.0/bin:/usr/local/Cellar/mysql/5.7.21/bin:/usr/local/opt/mongodb@3.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/Mauricio/.rvm/gems/ruby-2.6.0/bin:/Users/Mauricio/.rvm/gems/ruby-2.6.0@global/bin:/Users/Mauricio/.rvm/rubies/ruby-2.6.0/bin:/usr/local/Cellar/mysql/5.7.21/bin:/usr/local/opt/mongodb@3.4/bin:/Users/Mauricio/.nvm/versions/node/v8.15.0/bin:/Users/Mauricio/.rvm/bin
+  /home/thomas/.autojump/bin:/home/thomas/.rvm/gems/ruby-2.5.3/bin:/home/thomas/.rvm/gems/ruby-2.5.3@global/bin:/usr/share/rvm/rubies/ruby-2.5.3/bin:/home/thomas/.rvm/gems/ruby-2.5.3@menus-rails/bin:/home/thomas/.rvm/gems/ruby-2.5.3@global/bin:/home/thomas/.autojump/bin:/home/thomas/.nvm/versions/node/v8.15.0/bin:/home/thomas/.rvm/gems/ruby-2.5.3/bin:/home/thomas/.rvm/gems/ruby-2.5.3@global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/mongodb/bin:/usr/share/rvm/bin:/opt/mongodb/bin
 
 Yarn version: 
-  1.5.1
+  1.17.2
 
 Node version: 
   8.15.0
 
 Platform: 
-  darwin x64
+  linux x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/usr/share/yarn/lib/cli.js:136719:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:774:16)
+      at ReadStream.onkeypress (readline.js:158:10)
+      at emitTwo (events.js:126:13)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1010:36)
 
 npm manifest: 
   {
@@ -1074,19 +1087,3 @@ Lockfile:
       cliui "^2.1.0"
       decamelize "^1.0.0"
       window-size "0.1.0"
-
-Trace: 
-  Error: Command failed.
-  Exit code: 1
-  Command: sh
-  Arguments: -c node ./scripts/create-tweets.js
-  Directory: /Users/Mauricio/GoCater/projects/interview-challenge/backend
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:915:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:209:5)

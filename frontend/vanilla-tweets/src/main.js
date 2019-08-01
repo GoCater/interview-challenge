@@ -16,6 +16,22 @@ const CANNED_TWEET = {
     'Authentic four dollar toast disrupt. Pour-over swag blog, art party stumptown seitan cray. Kickstarter pork belly 3 wolf moon selfies cray'
 };
 
+
+const API_URL = 'http://localhost:4000';
+const getUrl = endpoint => `${API_URL}/api${endpoint}`;
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // ADD YOUR CODE HERE.
+
+
+  $('#tweet-creation-form').submit(function (ev) {
+    ev.preventDefault();
+    const tweet = {
+      content: $('#tweet-content').val(),
+    };
+    $.post(getUrl('/tweets'), {
+      tweet,
+    });
+  });
 });

@@ -5,11 +5,18 @@
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
   <body>
     <h1>Tweet list</h1>
-    <button id="add-tweet">Add</button>
-    <button id="remove-tweet" class="empty">Remove</button>
+    <button id="load-tweet">Load more</button>
+    <button id="clear-tweets" class="empty">Clear list</button>
 
     <div id="tweet-container">
     </div>
+
+
+    <form id="tweet-creation-form">
+      <textarea id="tweet-content" name="content">
+      </textarea>
+      <button type="submit">Submit</button>
+    </form>
 
     <script src="./lib/jquery-2.1.4.min.js"></script>
     <script src="./src/main.js"></script>
