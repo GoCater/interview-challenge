@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { postNewTweet } from '../utils/remote-actions';
 
 import './TweetCreationForm.css';
+
+const postNewTweet = () => {};
 
 const INITIAL_VALUES = {
   content: '',
 };
-
-const TweetSchema = Yup.object().shape({
-  content: Yup.string()
-    .min(20, 'Too Short!')
-    .max(300, 'Too Long!')
-    .required('Required'),
-});
 
 const TweetCreationForm = ({ onSuccess }) => {
   const [tweetSucccesfullyCreated, setTweetCreated] = useState(null);
@@ -26,7 +20,6 @@ const TweetCreationForm = ({ onSuccess }) => {
         setSubmitting(false);
         setTweetCreated(true);
         resetForm(INITIAL_VALUES);
-        onSuccess();
       })
       .catch(() => {
         setSubmitting(false);
@@ -39,7 +32,6 @@ const TweetCreationForm = ({ onSuccess }) => {
       <Formik
         initialValues={INITIAL_VALUES}
         onSubmit={onSubmit}
-        validationSchema={TweetSchema}
       >
         {props => {
           const {
