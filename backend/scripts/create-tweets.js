@@ -13,10 +13,6 @@ const opts = yargs.usage('Usage: $0 [options]')
     'Creates N new tweets in the DB with random content, ' +
     'associated to the given author-[a]'
   )
-  .option('a', {
-    alias: 'author',
-    describe: 'Author Id',
-  })
   .option('n', {
     alias: 'numberOfTweets',
     describe: 'Number of tweets to be created',
@@ -48,7 +44,7 @@ const createTweet = author => {
 };
 
 const createTweets = async () => {
-  const author = opts.author || process.env.DEFAULT_AUTHOR;
+  const author = process.env.DEFAULT_AUTHOR;
   const numberOfTweets = opts.numberOfTweets || 10;
   const iterationsArray = [...Array(numberOfTweets).keys()];
 
