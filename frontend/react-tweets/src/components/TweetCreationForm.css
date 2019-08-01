@@ -1,0 +1,26 @@
+.tweet-creation-form .text-input {
+  margin-left: 10px;
+}
+
+.tweet-creation-form button {
+  margin-right: 10px;
+}
+
+.tweet-creation-form .text-input.error {
+  border-color: red;
+}
+
+.tweet-creation-form .input-container {
+  display: block;
+}
+
+.tweet-creation-form .error-message {
+  color: red;
+}
+
+.form-container {
+  max-width: 400px;
+  margin-top: 30px;
+  border: 1px black solid;
+  padding: 10px;
+}
