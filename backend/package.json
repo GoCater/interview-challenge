@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "init": "node ./scripts/init.js",
-    "create-tweets": "node ./scripts/create-tweets.js"
+    "create-tweets": "node ./scripts/create-tweets.js -n 10"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
