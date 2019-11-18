@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "./node_modules/nodemon/bin/nodemon.js ./bin/www",
     "init": "node ./scripts/init.js",
     "create-tweets": "node ./scripts/create-tweets.js -n 10"
   },
@@ -19,6 +19,7 @@
     "lorem-ipsum": "^2.0.3",
     "mongoose": "^5.6.3",
     "morgan": "~1.9.1",
+    "nodemon": "^1.19.4",
     "yargs": "^13.2.4"
   }
 }
