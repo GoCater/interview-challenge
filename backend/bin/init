@@ -1,0 +1,2 @@
+#!/bin/sh
+node ./scripts/init.js && node ./scripts/create-tweets.js -n 10

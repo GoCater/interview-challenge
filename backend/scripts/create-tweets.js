@@ -16,12 +16,11 @@ const opts = yargs.usage('Usage: $0 [options]')
   .option('n', {
     alias: 'numberOfTweets',
     describe: 'Number of tweets to be created',
-    require: true,
+    default: 10,
   })
   .help('h')
   .version(false)
   .alias('h', 'help').argv;
-
 
 const contentGenerator = new LoremIpsum({
   sentencesPerParagraph: {
@@ -44,9 +43,8 @@ const createTweet = author => {
 };
 
 const createTweets = async () => {
-  const author = process.env.DEFAULT_AUTHOR;
-  const numberOfTweets = opts.numberOfTweets || 10;
-  const iterationsArray = [...Array(numberOfTweets).keys()];
+  const author = opts.author || process.env.DEFAULT_AUTHOR;
+  const iterationsArray = [...Array(opts.numberOfTweets).keys()];
 
   await Promise.all(
     iterationsArray.map(() => createTweet(author))
@@ -56,10 +54,10 @@ const createTweets = async () => {
 connectToDB()
   .then(createTweets)
   .then(() => {
+    console.log(`Successfully created ${opts.numberOfTweets} tweets.`);
     process.exit(0);
   })
   .catch(err => {
-    console.log(err);
-    Logger.error('Error', err, err.stack);
+    console.error('Error', err, err.stack);
     process.exit(1);
   });

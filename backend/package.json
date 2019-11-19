@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/nodemon/bin/nodemon.js ./bin/www",
-    "init": "node ./scripts/init.js",
-    "create-tweets": "node ./scripts/create-tweets.js -n 10"
+    "init": "./bin/init",
+    "reset": "node ./scripts/reset.js",
+    "create-tweets": "node ./scripts/create-tweets.js"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
