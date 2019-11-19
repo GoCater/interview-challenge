@@ -25,10 +25,10 @@ const createDefaultAuthor = async () => {
 connectToDB()
   .then(createDefaultAuthor)
   .then(() => {
+    console.log('Successfully created author.');
     process.exit(0);
   })
   .catch(err => {
-    console.log(err);
-    Logger.error('Error', err, err.stack);
+    console.error('Error', err, err.stack);
     process.exit(1);
   });
